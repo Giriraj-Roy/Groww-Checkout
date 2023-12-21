@@ -7,7 +7,7 @@ import {Button} from 'flowbite-react';
 export default function Checkout() {
   const { paymentMethod, totalPrice } = usePaymentStore();
   const router = useRouter();
-  const paymentStatuses = ['Pending', 'Completed', 'Failed'];
+  const paymentStatuses = ['Pending', 'Success', 'Failure'];
 
   const randomStatus = () => {
     const randomIndex = Math.floor(Math.random() * paymentStatuses.length);
@@ -17,17 +17,37 @@ export default function Checkout() {
   useEffect(() => {
     if(paymentMethod === '') {
       router.push('/');
-      return null;
+      // return null;
     }
   }, [])
+  let order_status;
   
   return (
-    <div className="text-black">
-      <h1 className="text-3xl font-bold text-center m-3">Order Confirmed</h1>
-      <h2>Payment Method: {paymentMethod}</h2>
-      <h2>Total Price: ${totalPrice}</h2>
-      <h2>Status: {randomStatus()}</h2>
-      <div>Back to <a href="/"><Button color="blue" className="inline-block">Home</Button></a></div>
+    <div className="py-4 px-1 flex flex-col items-center">
+      <h1 className="text-green-500 text-2xl font-bold text-center m-3">Order Status ! </h1>
+      <div className="w-[100%] h-[80vh] flex flex-col items-center justify-center">
+        <div className="my-4 py-2 px-4 w-[75%] lg:w-[20%] flex justify-between border-2 hover:border-[#6f68f5] rounded-lg font-semibold text-center text-gray-600">
+          Payment Method: 
+          <span className="">{paymentMethod}</span>
+        </div>
+        <div className="my-4 py-2 px-4 w-[75%] lg:w-[20%] flex justify-between border-2 hover:border-[#6f68f5] rounded-lg font-semibold text-center text-gray-600">
+          Total Price :  
+          <span className="">$ {totalPrice}</span>
+        </div>
+        <div className="my-4 py-2 px-4 w-[75%] lg:w-[20%] flex justify-between border-2 hover:border-[#6f68f5] rounded-lg font-semibold text-center text-gray-600">
+          Status : 
+          <span className="">{randomStatus()}</span>
+        </div>
+      </div>
+
+      <div className="text-black">
+        Back to 
+        <a href="/">
+          <Button className="mx-3 p-0 rounded-md inline-block bg-[#6f68f5]">
+            Home
+          </Button>
+        </a>
+      </div>
     </div>
   )
 }

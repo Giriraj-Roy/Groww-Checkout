@@ -11,11 +11,13 @@ export default function Payments() {
   const { setPaymentMethod, setPrice } = usePaymentStore();
   
   const [selectedMethod, setSelectedMethod] = useState('');
+  const [selectedID, setSelectedID] = useState(-1);
+
   
   useEffect(() => {
     if(cart.length === 0) {
       router.push('/');
-      return null;
+      // return null;
     }
   }, [])
 
@@ -28,34 +30,25 @@ export default function Payments() {
     console.log(totalPrice);
     setPrice(totalPrice);
     setPaymentMethod(selectedMethod);
+    console.log(selectedMethod)
     router.push('/checkout');
   }
   var len = cart.length;
   return (
-    
-      (len === 0 )? 
-        <div>
-          Select Item to Proceed
-        </div>
-      :
-      <div className='md:w-full md:h-[100vh] flex flex-col justify-center items-center font-semibold text-xl text-gray-600'>
-          <h3 className="my-8">Preferred Payment Mode</h3>
-          <div className='py-4 flex gap-4'>
+      <div className='md:w-full h-[100vh] flex flex-col justify-center items-center font-semibold text-xl text-gray-600'>
+          <h3 className="mt-10 mb-10 md:my-8">Preferred Payment Mode</h3>
+          <div className='py-4 w-[90%] md:w-auto flex flex-col items-center justify-center md:flex md:flex-row md:gap-4'>
             {paymentMethods.map((item, index) => (
               <div 
-                  className="py-2 px-4 mx-2 min-w-[100%] md:min-w-[30%] text-center border-2 border-[#6f68f5] rounded-md hover:bg-[#6f68f5] hover:text-white"
-                  // className="flex items-center gap-2"
+                  className={`py-2 px-4 my-2 mx-2 min-w-[100%] md:w-[30%] cursor-pointer text-center border-2 font-medium text-black border-[#6f68f5] rounded-md  hover:bg-[#6f68f5] hover:text-white
+                  `}
                   key={index}
                   onClick={()=>{
-                    setSelectedMethod(item)
-                    console.log(selectedMethod)
-  
+                    setSelectedID(item.id)
+                    return setSelectedMethod(item)
                   }}
               >
-                <Radio className="w-0 h-0" id="germany" name="method" value={item} 
-                  // onClick={()=> setSelectedMethod(item)}
-                />
-                <Label htmlFor="germany">{item}</Label>
+                <Label className="text-black hover:text-white cursor-pointer">{item}</Label>
               </div>
             ))}
           </div>
