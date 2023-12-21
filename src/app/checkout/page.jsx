@@ -3,6 +3,7 @@ import usePaymentStore from "../stores/payment";
 import { useRouter } from 'next/navigation'
 import { useEffect } from "react";
 import {Button} from 'flowbite-react';
+import Link from "next/link";
 
 export default function Checkout() {
   const { paymentMethod, totalPrice } = usePaymentStore();
@@ -23,8 +24,11 @@ export default function Checkout() {
   let order_status;
   
   return (
-    <div className="py-4 px-1 flex flex-col items-center">
-      <h1 className="text-green-500 text-2xl font-bold text-center m-3">Order Status ! </h1>
+    <div className="relative py-4 px-1 flex flex-col items-center">
+      <Link href='/payments' className="absolute top-2 left-2 cursor-pointer text-sm font-bold text-black">
+            {'<--'} Payment Options
+      </Link>
+      <h1 className="text-green-500 text-2xl font-bold text-center mt-6">Order Status ! </h1>
       <div className="w-[100%] h-[80vh] flex flex-col items-center justify-center">
         <div className="my-4 py-2 px-4 w-[75%] lg:w-[20%] flex justify-between border-2 hover:border-[#6f68f5] rounded-lg font-semibold text-center text-gray-600">
           Payment Method: 

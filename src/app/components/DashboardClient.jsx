@@ -25,10 +25,11 @@ export default function DashboardClient({ data }) {
 
             { cart.length===0 ? 
                 <div className="h-[32vh] py-4 px-2">
-                    <h2 className="text-3xl font-bold text-black">
+                    <h2 className="text:xl md:text-3xl font-bold text-black">
                         Your Cart is Empty
                     </h2>
-                    <span className="text-lg text-black">
+
+                    <span className="my-4 text-lg text-black">
                         Give it purpose – fill it with groceries, clothing, household supplies, electronics and more.
                     </span>
                     
@@ -57,11 +58,11 @@ export default function DashboardClient({ data }) {
                 </Card>
             ))}
         </div>
-        <div className="my-4 font-semibold text-gray-600">
+        <div className="mt-2 md:my-4 font-semibold text-gray-600">
             <h2>Payment Methods Available</h2>
             <ul className="flex mt-2 w-[25%]">
                 {paymentMethods.map((item, index) => (
-                    <li className="py-2 px-4 mx-2 min-w-[100%] md:min-w-[30%] text-center border-2 border-[#6f68f5] rounded-md hover:bg-[#6f68f5] hover:text-white"
+                    <li className="py-2 px-2 md:px-4 mx-2 min-w-[100%] md:min-w-[30%] text-center border-2 border-[#6f68f5] rounded-md hover:bg-[#6f68f5] hover:text-white"
                         key={index}
                     >
                         {item}

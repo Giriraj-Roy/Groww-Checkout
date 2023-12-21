@@ -1,9 +1,11 @@
 import DashboardClient from "./components/DashboardClient";
 export default async function Home() {
   
-  const response = await fetch('https://groww-intern-assignment.vercel.app/v1/api/order-details', { next: {
+  const response = await fetch('https://groww-intern-assignment.vercel.app/v1/api/order-details', 
+  { next: {
     revalidate: 10,
-  } });  
+  } }
+  );  
   const data = await response.json();
   console.log(data)
   
