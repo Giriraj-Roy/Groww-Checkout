@@ -1,24 +1,34 @@
-### Groww-Checkout Repo Summary
+### Groww Checkout Project Overview
 
-*Short Description:*
-This repository is a Next.js project initialized with create-next-app, designed for real-time page editing and optimized font loading【8†source】【10†source】.
+#### Roadmap & Planning
+The Groww Checkout project is a Next.js application designed to provide a seamless checkout experience. The roadmap likely involved several key phases:
 
-*Roadmap & Planning:*
-1. *Initial Setup:* Configure Next.js and Tailwind CSS for UI development.
-2. *Feature Development:* Implement the checkout functionality using Zustand for state management.
-3. *Optimization:* Leverage Next.js features for performance and SEO.
-4. *Deployment:* Utilize Vercel for easy deployment and updates.
+1. *Setup & Initial Configuration*: Setting up the Next.js environment and configuring essential tools.
+2. *UI Development*: Creating interactive and responsive interfaces using Tailwind CSS.
+3. *State Management*: Implementing Zustand for efficient state handling across the application.
+4. *Checkout Logic*: Developing the checkout flow, including cart management and payment processing.
+5. *Testing & Optimization*: Ensuring the application is robust, fast, and user-friendly.
+6. *Deployment*: Deploying the app to Vercel for public access.
 
-*Tools Used:*
-- Next.js: A React framework for building user interfaces.
-- Tailwind CSS: A utility-first CSS framework.
-- Zustand: A state management tool.
-- next/font: For optimizing and loading custom fonts.
+#### Table of Tools Used
 
-*Resources and Learning:*
-- Next.js Documentation and interactive tutorials.
+| Tool                   | Purpose                                               |
+|------------------------|-------------------------------------------------------|
+| *Next.js*            | The React framework for building the user interface.  |
+| *Tailwind CSS*       | A utility-first CSS framework for styling.            |
+| *Zustand*            | State management library for managing application state. |
+| *Flowbite & Flowbite-React* | UI component libraries used alongside Tailwind CSS. |
+| *Axios*              | Promise-based HTTP client for making API requests.    |
 
-*Deployed Site:*
-- [Groww Checkout](https://groww-checkout-ashy.vercel.app/).
+#### Key Components & Files
 
-Keep this roadmap flexible and revisit it periodically as the project evolves.
+- *Checkout Page*: [page.jsx](https://github.com/Giriraj-Roy/Groww-Checkout/blob/master/src/app/checkout/page.jsx) - Handles the checkout process, displaying order status and payment details.
+- *Dashboard Client*: [DashboardClient.jsx](https://github.com/Giriraj-Roy/Groww-Checkout/blob/master/src/app/components/DashboardClient.jsx) - Manages the user's cart and displays available payment methods.
+- *Cart Store*: [cart.jsx](https://github.com/Giriraj-Roy/Groww-Checkout/blob/master/src/app/stores/cart.jsx) - Zustand store for managing cart state.
+- *Payment Store*: [payment.jsx](https://github.com/Giriraj-Roy/Groww-Checkout/blob/master/src/app/stores/payment.jsx) - Zustand store for handling payment details.
+
+#### Deployment
+
+The application is deployed and can be accessed at [Groww Checkout](https://groww-checkout-ashy.vercel.app/).
+
+---
