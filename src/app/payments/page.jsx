@@ -13,6 +13,9 @@ export default function Payments() {
   
   const [selectedMethod, setSelectedMethod] = useState('');
   const [selectedID, setSelectedID] = useState(-1);
+  const [active, setActive] = useState('-');
+
+  
 
   
   useEffect(() => {
@@ -45,6 +48,7 @@ export default function Payments() {
             {paymentMethods.map((item, index) => (
               <div 
                   className={`py-2 px-4 my-2 mx-2 min-w-[100%] md:w-[30%] cursor-pointer text-center border-2 font-medium text-black border-[#6f68f5] rounded-md  hover:bg-[#6f68f5] hover:text-white
+                  ${selectedID!==-1 && item===selectedMethod? "bg-[#4b41ff] hover:bg-[#342eb1] text-white animate-bounce": "bg-white"}
                   `}
                   key={index}
                   onClick={()=>{
@@ -52,7 +56,7 @@ export default function Payments() {
                     return setSelectedMethod(item)
                   }}
               >
-                <Label className="text-black hover:text-white cursor-pointer">{item}</Label>
+                <Label className="text-inherit cursor-pointer">{item}</Label>
               </div>
             ))}
           </div>
